@@ -11,7 +11,7 @@ class App {
 
 
     // BEGIN
-    public static Map<String, Integer> getMinMax(int[] numbers) {
+    public static Map<String, Integer>  getMinMax(int[] numbers) {
         MaxThread maxThread = new MaxThread(numbers);
         MinThread minThread = new MinThread(numbers);
 
