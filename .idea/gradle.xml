@@ -4,11 +4,10 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <option name="externalProjectPath" value="$PROJECT_DIR$/java-advanced-ru/multithreading" />
-        <option name="gradleJvm" value="21" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/java-advanced-ru/multithreading-java" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$/java-advanced-ru/multithreading" />
+            <option value="$PROJECT_DIR$/java-advanced-ru/multithreading-java" />
           </set>
         </option>
       </GradleProjectSettings>
