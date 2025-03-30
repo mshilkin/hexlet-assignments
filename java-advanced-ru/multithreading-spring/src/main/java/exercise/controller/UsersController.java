@@ -2,6 +2,7 @@ package exercise.controller;
 
 import exercise.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import reactor.core.publisher.Flux;
@@ -36,7 +37,7 @@ public class UsersController {
     }
 
     @PutMapping("/{id}")
-    public Mono<User> updateUser(@PathVariable BigInteger id, User user) {
+    public Mono<User> updateUser(@PathVariable("id") BigInteger id,@RequestBody User user) {
         return userService.updateUser(id, user);
     }
 

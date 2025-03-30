@@ -34,8 +34,8 @@ public class UserService {
     public Mono<User> updateUser(BigInteger id, User userDetails) {
         return userRepository.findById(id)
                 .flatMap(user -> {
-                    user.setFirstName(userDetails.getFirstName());
-                    user.setLastName(userDetails.getLastName());
+                    user.setFirstName(userDetails.getFirstName()/*"Test"*/);
+                    user.setLastName(userDetails.getLastName()/*"User"*/);
                     //user.setEmail(userDetails.getEmail());
                     return userRepository.save(user);
                 })
