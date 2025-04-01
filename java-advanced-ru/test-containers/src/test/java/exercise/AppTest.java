@@ -48,7 +48,7 @@ public class AppTest {
             .withUsername("sa")
             .withPassword("sa")
             // Скрипт, который будет выполнен при запуске контейнера и наполнит базу тестовыми данными
-            .withInitScript("script.sql");
+            .withInitScript("init.sql");
 
     // Так как мы не можем знать заранее, какой URL будет у базы данных в контейнере
     // Нам потребуется установить это свойство динамически
@@ -88,5 +88,43 @@ public class AppTest {
         assertThat(response.getContentAsString()).contains("Jackson", "Bind");
     }
     // Остальные тесты
+    @Test
+    void testGetAllPeople() throws Exception {
+        MockHttpServletResponse response = mockMvc
+                .perform(get("/people"))
+                .andReturn()
+                .getResponse();
+        assertThat(response.getStatus()).isEqualTo(200);
+        assertThat(response.getContentType()).isEqualTo(MediaType.APPLICATION_JSON.toString());
+
+    }
+
+    @Test
+    void testGetPersonById() throws Exception {
+        MockHttpServletResponse response = mockMvc
+                .perform(get("/people/1"))
+                .andReturn()
+                .getResponse();
+        assertThat(response.getStatus()).isEqualTo(200);
+        assertThat(response.getContentType()).isEqualTo(MediaType.APPLICATION_JSON.toString());
+        assertThat(response.getContentAsString()).contains("John","Doe");
+    }
+
+    @Test
+    void testDeletePerson() throws Exception {
+        MockHttpServletResponse response = mockMvc
+                .perform(delete("/people/1"))
+                .andReturn()
+                .getResponse();
+        assertThat(response.getStatus()).isEqualTo(200);
+
+
+    MockHttpServletResponse responseGet = mockMvc
+            .perform(get("/people/1"))
+            .andReturn()
+            .getResponse();
+    assertThat(responseGet.getStatus()).isEqualTo(404);
+    }
+
 
 }
