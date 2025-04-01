@@ -43,7 +43,7 @@ public class AppTest {
     // Если не указать версию, будет скачана последняя версия образа
     private static PostgreSQLContainer<?> database = new PostgreSQLContainer<>("postgres")
             // Создаём базу данных с указанным именем
-            .withDatabaseName("dbname")
+            .withDatabaseName("hexlet")
             // Указываем имя пользователя и пароль
             .withUsername("sa")
             .withPassword("sa")
@@ -107,7 +107,7 @@ public class AppTest {
                 .getResponse();
         assertThat(response.getStatus()).isEqualTo(200);
         assertThat(response.getContentType()).isEqualTo(MediaType.APPLICATION_JSON.toString());
-        assertThat(response.getContentAsString()).contains("John","Doe");
+        assertThat(response.getContentAsString()).contains("John","Smith");
     }
 
     @Test
