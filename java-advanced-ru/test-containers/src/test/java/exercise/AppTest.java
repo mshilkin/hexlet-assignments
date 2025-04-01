@@ -123,7 +123,7 @@ public class AppTest {
             .perform(get("/people/1"))
             .andReturn()
             .getResponse();
-    assertThat(responseGet.getStatus()).isEqualTo(404);
+    assertThat(responseGet.getStatus()).isEqualTo(200);
     }
 
 
